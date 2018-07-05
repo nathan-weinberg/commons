@@ -19,6 +19,8 @@ def read(*args, **kwargs):
 def test_run(mock_client):
     setattr(__builtin__, "NS", maps.NamedDict())
     setattr(NS, "_int", maps.NamedDict())
+    setattr(NS, "node_context", maps.NamedDict())
+    NS.node_context["fqdn"] = "test_fqdn"
     NS._int.etcd_kwargs = {
         'port': 1,
         'host': 2,
